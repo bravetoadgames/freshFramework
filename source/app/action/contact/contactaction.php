@@ -1,4 +1,5 @@
 <?php
+
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -10,32 +11,24 @@
 
 namespace app\action\contact;
 
-use \app\controller\usercontroller;
 use \app\controller\contactcontroller;
-use \app\model\user\user;
 use \app\model\contact\contact;
 use base;
 
 /**
  * Class constructor
  */
-class ContactAction extends base\common
-{
+class ContactAction extends base\common {
 
     protected $appData = null;
-
     protected $template = 'default';
-
     protected $contact = null;
-
-    protected $user = null;
 
     /**
      * Class constructor
      * @param object \Base\Application
      */
-    function __construct($data = null)
-    {
+    function __construct($data = null) {
         $this->appData = $data;
         $this->appData->view->setTemplate($this->template);
     }
@@ -43,11 +36,9 @@ class ContactAction extends base\common
     /**
      * Main function
      */
-    public function run()
-    {
+    public function run() {
         $this->processPost();
 
-        $this->createUser();
         $this->createContact();
         $this->createView();
     }
@@ -55,9 +46,7 @@ class ContactAction extends base\common
     /**
      * Create the view
      */
-    private function createView()
-    {
-        $this->appData->view->setData('user', $this->user);
+    private function createView() {
         $this->appData->view->setData('contact', $this->contact);
         $this->appData->view->run();
     }
@@ -65,29 +54,18 @@ class ContactAction extends base\common
     /**
      * Create an empty user object
      */
-    private function createUser()
-    {
-        $this->user = new User();
-    }
-
-    /**
-     * Create an empty user object
-     */
-    private function createContact()
-    {
+    private function createContact() {
         $this->contact = new Contact();
     }
 
     /**
      * Process posted contactform
      */
-    protected function processPost()
-    {
+    protected function processPost() {
         if (!$this->appData->postParameters->hasParameters()) {
             return false;
         }
 
-        $userController = new UserController($this->appData->database);
         $contactController = new ContactController($this->appData->database);
 
         $firstname = $this->appData->postParameters->getParameter('firstname');
@@ -96,23 +74,17 @@ class ContactAction extends base\common
         $email = $this->appData->postParameters->getParameter('email');
         $message = $this->appData->postParameters->getParameter('message');
 
-        $user = new User();
-
-        $user->setValue('firstname', $firstname);
-        $user->setValue('insertion', $insertion);
-        $user->setValue('surname', $surname);
-        $user->setValue('email', $email);
-
-        $userId = $userController->save($user);
-
         $contact = new Contact();
 
-        $contact->setValue('user_id', $userId);
+        $contact->setValue('firstname', $firstname);
+        $contact->setValue('insertion', $insertion);
+        $contact->setValue('surname', $surname);
+        $contact->setValue('email', $email);
         $contact->setValue('message', $message);
         $contact->setValue('date_sent', date("Y-m-d H:i:s"));
         $contact->setValue('ip_address', $this->appData->configuration->get('ip.address.visitor'));
 
-        $contactController->save($contact);
+        $contactId = $contactController->save($contact);
 
         $this->appData->sessionParameters->setSession('message', 'Successfully added a contact');
         return true;
