@@ -1,0 +1,130 @@
+/*****************************************************************************
+MAIN TEMPLATE
+*****************************************************************************/
+html, body {
+    margin: 0;
+    padding: 0;
+    color: #555;
+}
+
+h1 {
+    color: #999;   
+}
+
+.fresh-main-content {
+    width: 940px;
+    margin: 0 auto;
+    text-align:left;
+}
+
+.fresh-main-content ul.menu {
+    margin: 10px 0;
+    padding: 0;
+    width: 100%;
+}
+
+.fresh-main-content ul.menu li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background: #efe;
+    padding: 10px;
+    vertical-align: middle;
+    border-top: 1px solid #0c0;
+    border-bottom: 1px solid #0c0;
+    width: 25%;
+    text-align: center;
+}
+
+.menu-active {
+    background: #fed !important;
+    border-top: 1px solid #c70 !important;
+    border-bottom: 1px solid #c70 !important;
+}
+
+.menu-active a {
+    color: #c70 !important;
+}
+
+a.fresh-logo {
+    display: inline;
+    float: right;
+}
+
+.fresh-header {
+    height: 80px;
+}
+.fresh-header h1 {
+    padding-top: 10px;
+}
+/*****************************************************************************
+FORM SETTINGS
+*****************************************************************************/
+.fresh-form {
+    width: 80%;
+}
+
+.fresh-remark {
+    font-size: 0.9em;
+    font-style: italic;
+}
+.fresh-form .input-element {
+    display: block;
+}
+
+.fresh-form .input-element input, .fresh-form .input-element textarea {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    outline: 0;
+    width: 68%;
+}
+
+.fresh-form .input-element label {
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+
+.fresh-form label.error {
+    border: 1px solid #c00;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 0 0 40px 0;
+    background: #fee;
+    color: #c00;
+    text-align: center;
+    width: 98.5%;
+    font-weight: initial;
+}
+
+/*****************************************************************************
+TABLE ALIGNING
+*****************************************************************************/
+.table-align-left {
+    text-align: left;
+}
+
+.table-align-center {
+    text-align: center;
+}
+
+.table-align-right {
+    text-align: right;
+}
+/*****************************************************************************
+OTHER
+*****************************************************************************/
+div.fresh-debug {
+    border: 1px dashed #999;
+    margin-top: 100px;
+    padding: 10px;
+    color: #999;
+}
+
+div span.fresh-debug-title {
+    font-size: 2em;
+    color: #999;
+}
