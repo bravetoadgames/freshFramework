@@ -1,4 +1,5 @@
 <?php
+
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -12,14 +13,12 @@ namespace app\model\contact;
 
 use base;
 
-class Contact extends base\model
-{
+class Contact extends base\model {
 
     /**
      * @var array
      */
-    protected $fieldSet = array('id', 'user_id', 'message', 'date_sent', 'ip_address');
-
+    protected $fieldSet = array('id', 'firstname', 'insertion', 'surname', 'email', 'message', 'date_sent', 'ip_address');
     protected $values = array();
 
 }
