@@ -1,6 +1,5 @@
 # freshFramework
 A homemade PHP framework
-FreshFramework
 =====================
 
 FreshFramework - A personal PHP framework, made to learn, have fun and maybe use in a future project (https://github.com/arjenschumacher/freshFramework).
