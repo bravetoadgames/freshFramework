@@ -3,6 +3,10 @@
 
 FreshFramework - A personal PHP framework, made to learn, have fun and maybe use in a future project (https://github.com/arjenschumacher/freshFramework).
 
+<<<<<<< HEAD
+=======
+* Version: 0.2.2.0
+>>>>>>> develop
 * Requirements: mySQL, Apache 2, PHP >= 5.4, mod_rewrite, mbstring, mcrypt
 * Website: http://www.freshlimes.nl/ (Dutch alert!)
 
