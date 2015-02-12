@@ -68,21 +68,21 @@ class ContactAction extends base\common {
 
         $contactController = new ContactController($this->appData->database);
 
-        $firstname = $this->appData->postParameters->getParameter('firstname');
-        $insertion = $this->appData->postParameters->getParameter('insertion');
-        $surname = $this->appData->postParameters->getParameter('surname');
-        $email = $this->appData->postParameters->getParameter('email');
-        $message = $this->appData->postParameters->getParameter('message');
+        $firstname = $this->appData->postParameters->get('firstname');
+        $insertion = $this->appData->postParameters->get('insertion');
+        $surname = $this->appData->postParameters->get('surname');
+        $email = $this->appData->postParameters->get('email');
+        $message = $this->appData->postParameters->get('message');
 
         $contact = new Contact();
 
-        $contact->setValue('firstname', $firstname);
-        $contact->setValue('insertion', $insertion);
-        $contact->setValue('surname', $surname);
-        $contact->setValue('email', $email);
-        $contact->setValue('message', $message);
-        $contact->setValue('date_sent', date("Y-m-d H:i:s"));
-        $contact->setValue('ip_address', $this->appData->configuration->get('ip.address.visitor'));
+        $contact->set('firstname', $firstname);
+        $contact->set('insertion', $insertion);
+        $contact->set('surname', $surname);
+        $contact->set('email', $email);
+        $contact->set('message', $message);
+        $contact->set('date_sent', date("Y-m-d H:i:s"));
+        $contact->set('ip_address', $this->appData->configuration->get('ip.address.visitor'));
 
         $contactId = $contactController->save($contact);
 

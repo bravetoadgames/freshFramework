@@ -16,7 +16,7 @@ class Controller
     public static function setDataToObject($object, $data)
     {
         foreach ($object->getFieldSet() as $key) {
-            $object->setValue($key, $data[$key]);
+            $object->set($key, $data[$key]);
         }
         return $object;
     }
@@ -29,7 +29,7 @@ class Controller
     {
         $data = array();
         foreach ($object->getFieldSet() as $key) {
-            $data[$key] = $object->getValue($key);
+            $data[$key] = $object->get($key);
         }
         return $data;
     }

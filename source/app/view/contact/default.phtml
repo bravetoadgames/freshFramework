@@ -9,35 +9,35 @@
             <label for="firstname">
                 <?= __First_name ?>*
             </label>
-            <input type="text" name="firstname" value="<?= $this->contact->getValue('firstname') ?>" class='required' />
+            <input type="text" name="firstname" value="<?= $this->contact->get('firstname') ?>" class='required' />
         </div>
 
         <div class="input-element">
             <label for="insertion">
                 <?= __Insertion ?>
             </label>
-            <input type="text" name="insertion" value="<?= $this->contact->getValue('insertion') ?>" />
+            <input type="text" name="insertion" value="<?= $this->contact->get('insertion') ?>" />
         </div>
 
         <div class="input-element">
             <label for="surname">
                 <?= __Surname ?>*
             </label>
-            <input type="text" name="surname" value="<?= $this->contact->getValue('surname') ?>" class='required' />
+            <input type="text" name="surname" value="<?= $this->contact->get('surname') ?>" class='required' />
         </div>
 
         <div class="input-element">
             <label for="email">
                 <?= __Email_address ?>*
             </label>
-            <input type="text" name="email" value="<?= $this->contact->getValue('email') ?>" class='required email'/>
+            <input type="text" name="email" value="<?= $this->contact->get('email') ?>" class='required email'/>
         </div>
 
         <div class="input-element">
             <label for="message">
                 <?= __Message ?>*
             </label>
-            <textarea name="message" class='required' ><?= $this->contact->getValue('message') ?></textarea>
+            <textarea name="message" class='required' ><?= $this->contact->get('message') ?></textarea>
         </div>
 
         <div class="input-element">
