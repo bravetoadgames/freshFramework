@@ -30,7 +30,7 @@ class ContactController extends base\controller
      */
     public function getAll()
     {
-        $result = $this->db->query('SELECT * FROM contact ORDER BY dateSent DESC');
+        $result = $this->db->query('SELECT * FROM contact ORDER BY date_sent DESC');
         if ($result) {
             return $this->fetchData('Contact', $result);
         }
@@ -59,12 +59,18 @@ class ContactController extends base\controller
         $query = "
             INSERT INTO
                 contact
-            (user_id,
+            (firstname,
+             insertion,
+             surname,
+             email,
              message,
              date_sent,
              ip_address)
             VALUES
-            (#userId, 
+            (#firstname, 
+             #insertion, 
+             #surname, 
+             #email, 
              #message,
              #date_sent, 
              #ip_address)

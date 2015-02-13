@@ -12,16 +12,16 @@
         <?php foreach ($this->users as $user): ?>
             <tr>
                 <td class="table-align-right">
-                    <?= $user->getValue('id') ?>
+                    <?= $user->get('id') ?>
                 </td>
                 <td class="table-align-left">
-                    <?= $user->getValue('firstname') ?>
+                    <?= $user->get('firstname') ?>
                 </td>
                 <td class="table-align-left">
-                    <?= $user->getValue('surname') ?><?= ($user->getvalue('insertion') != '' ? ", " . $user->getValue('insertion') : "") ?>
+                    <?= $user->get('surname') ?><?= ($user->get('insertion') != '' ? ", " . $user->get('insertion') : "") ?>
                 </td>
                 <td class="table-align-left">
-                    <?= $user->getValue('email') ?>
+                    <?= $user->get('email') ?>
                 </td>
             </tr>
         <?php endforeach; ?>
