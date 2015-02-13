@@ -10,8 +10,6 @@
 
 namespace app\action\test;
 
-use base\Sendmail;
-
 /**
  * Class constructor
  */
@@ -36,7 +34,7 @@ class TestAction
      */
     function __construct($data = null)
     {
-        $this->mail = new Sendmail();
+        $this->appData = $data;
     }
 
     /**
