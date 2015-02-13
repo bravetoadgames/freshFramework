@@ -1,5 +1,4 @@
 <?php
-
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -15,11 +14,13 @@ use \app\model\contact\contact;
 use \app\model\user\user;
 use \base;
 
-class ContactController extends base\controller {
+class ContactController extends base\controller
+{
 
     protected $db = null;
 
-    function __construct($db = null) {
+    function __construct($db = null)
+    {
         $this->db = $db;
     }
 
@@ -27,7 +28,8 @@ class ContactController extends base\controller {
      * Get all contact records
      * @return array
      */
-    public function getAll() {
+    public function getAll()
+    {
         $result = $this->db->query('SELECT * FROM contact ORDER BY date_sent DESC');
         if ($result) {
             return $this->fetchData('Contact', $result);
@@ -39,7 +41,8 @@ class ContactController extends base\controller {
      * @param object $contact
      * @return int
      */
-    public function save($contact) {
+    public function save($contact)
+    {
         if ($contact->isNew()) {
             return $this->insert($contact);
         }
@@ -51,7 +54,8 @@ class ContactController extends base\controller {
      * @param object $contact
      * @return int
      */
-    protected function insert($contact) {
+    protected function insert($contact)
+    {
         $query = "
             INSERT INTO
                 contact
@@ -82,7 +86,8 @@ class ContactController extends base\controller {
      * @param object $result
      * @return array
      */
-    protected function fetchData($result) {
+    protected function fetchData($result)
+    {
         $data = array();
         foreach ($result as $row) {
             $data[] = $this->setDataToObject(new Contact(), $row);

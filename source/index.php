@@ -9,13 +9,11 @@
  */
 
 session_start();
-
 /**
  * Load default class libraries
  */
-require_once('base/kint/Kint.class.php');               // Test output
-require_once('base/swiftmailer/swift_required.php');    // Swiftmailer
-require_once('base/autoloader.php');                    // Autoloader
+require_once('base/kint/Kint.class.php');                   // Test output
+require_once('base/autoloader.php');                        // Autoloader
 
 use base\application;
 
