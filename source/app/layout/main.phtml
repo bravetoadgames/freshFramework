@@ -13,6 +13,8 @@
         <!-- Custom JQuery -->
         <script src="<?= $this->configuration->get('url.root') ?>/assets/js/main.js"></script>
 
+        <link rel="stylesheet" href="<?= $this->configuration->get('url.root') ?>/assets/css/normalize.css"/>
+
         <!-- FreshFramework CSS -->
         <link rel="stylesheet" href="<?= $this->configuration->get('url.root') ?>/assets/css/style.css"/>
 
@@ -25,7 +27,7 @@
     </head>
 
     <body>
-        <div class="fresh-main-content">
+        <div class="container">
             <div class="fresh-header">
                 <a class="fresh-logo" href="<?= $this->createUrl('') ?>">
                     <img src="<?= $this->configuration->get('url.root') ?>/assets/img/logo.png" alt="<?= $this->configuration->get('app.title') ?>" title="<?= $this->configuration->get('app.title') ?>"/>
@@ -67,6 +69,6 @@
             <?php if ($this->configuration->get('dev.debug') == true): ?>
                 <?php //d($this); ?>
             <?php endif; ?>
-
+        </div>
     </body>
 </html>
