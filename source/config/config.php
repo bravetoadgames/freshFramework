@@ -1,5 +1,4 @@
 <?php
-
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -34,7 +33,7 @@ $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 // Developer configuration
 $config->set('dev.debug', false);
 $config->set('dev.starttime', microtime());
-$config->set('dev.version', '0.4.0.2');
+$config->set('dev.version', '0.4.2.0');
 
 if ($config->get('dev.debug') === true) {
     error_reporting(E_ALL);

@@ -547,6 +547,21 @@ if ( !function_exists( 'd' ) ) {
 	}
 }
 
+if ( !function_exists( 'trace' ) ) {
+	/**
+	 * Alias of Kint::trace()
+	 *
+	 * @return string
+	 */
+	function trace()
+	{
+		if ( !Kint::enabled() ) return null;
+
+		$args = func_get_args();
+		return call_user_func_array( array( 'Kint', 'trace' ), $args );
+	}
+}
+
 if ( !function_exists( 'dd' ) ) {
 	/**
 	 * Alias of Kint::dump()

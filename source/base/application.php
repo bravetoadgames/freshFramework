@@ -43,9 +43,10 @@ class Application extends Common
         $this->prepareConfiguration();
         $this->prepareLanguage();
         $this->prepareDatabase();
+        $this->prepareParameters();
         $this->prepareRoute();
         $this->prepareTemplate();
-        $this->prepareParameters();
+        $this->prepareMessage();
         $this->runPage();
         $this->runTime();
     }
@@ -66,6 +67,8 @@ class Application extends Common
 
         $this->view = new View($this->configuration);
         $this->view->setAction($this->route->getRoute());
+        $this->view->setTitle($this->route->getTitle());
+        $this->view->setLayout($this->configuration->get('app.mainTemplate'));
         $this->view->prepareView($this->route->getRoute());
     }
 
@@ -76,7 +79,15 @@ class Application extends Common
     {
         $this->postParameters = new Parameter($_POST);
         $this->getParameters = new Parameter($_GET);
-        $this->sessionParameters = new Session($_SESSION);
+        $this->sessionParameters = new Session();
+    }
+
+    /**
+     * Prepare template engine
+     */
+    private function prepareMessage()
+    {
+        $this->message = new Message();
     }
 
     /**
@@ -115,13 +126,18 @@ class Application extends Common
     {
         $endtime = microtime();
         if ($this->configuration->get('dev.debug') === true) {
-            echo "<div class='fresh-debug'>";
+            echo '<div class="container"><div class="row">
+                <div class="col-lg-12">';
+
             echo "<span class='fresh-debug-title'>Refreshing debugger</span>";
             echo "<p>Turn off debugging in APPROOT/config/<strong>config.php</strong> by setting dev.debug to <strong>FALSE</strong></p>";
-            d($_SESSION);
             d($this->database->showQueries());
+            d($this->getParameters);
+            d($this->postParameters);
+            d($this->sessionParameters);
+            d($this);
             var_dump("runtime: " . number_format(microtime() - $this->configuration->get('dev.starttime'), 5, ",", ".") . " seconds");
-            echo "</div>";
+            echo "</div></div></div>";
         }
     }
 

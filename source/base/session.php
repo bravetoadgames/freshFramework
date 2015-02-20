@@ -10,58 +10,77 @@
 
 namespace base;
 
-class Session {
+class Session
+{
 
-	protected $sessions = array();
+    protected $values = array();
 
-	/**
-	 * Detect existence of session variable
-	 * @param type $key
-	 * @return type
-	 */
-	public function hasSession($key) {
-		return (isset($_SESSION[$key]));
-	}
+    function __construct()
+    {
+        $this->prepareSessions();
+    }
 
-	/**
-	 * Return a session value
-	 * @param type $key
-	 * @return type
-	 */
-	public function getSession($key) {
-		if ($this -> hasSession($key)) {
-			return $_SESSION[$key];
-		}
-		return false;
-	}
+    private function prepareSessions()
+    {
+        $this->values = array();
+        foreach ($_SESSION as $key => $value) {
+            $this->values[$key] = $value;
+        }
+    }
 
-	/**
-	 * Set a session value
-	 * @param string $key
-	 * @param string $value
-	 */
-	public function setSession($key, $value) {
-		$_SESSION[$key] = $value;
-	}
+    /**
+     * Detect existence of session variable
+     * @param type $key
+     * @return type
+     */
+    public function hasSession($key)
+    {
+        return (isset($this->values[$key]));
+    }
 
-	/**
-	 * Set all session parameters
-	 * @param array $data
-	 */
-	public function setSessions($data) {
-		foreach ($data as $key => $value) {
-			$_SESSION[$key] = $value;
-		}
-	}
+    /**
+     * Return a session value
+     * @param type $key
+     * @return type
+     */
+    public function getSession($key)
+    {
+        if ($this->hasSession($key)) {
+            return $this->values[$key];
+        }
+        return false;
+    }
 
-	/**
-	 * Check if more than 0 elements are in $_SESSION global array
-	 */
-	public function hasSessions() {
-		if (count($_SESSION) > 0) {
-			return true;
-		}
-		return false;
-	}
+    /**
+     * Set a session value
+     * @param string $key
+     * @param string $value
+     */
+    public function setSession($key, $value)
+    {
+        $this->values[$key] = $value;
+    }
+
+    /**
+     * Set all session parameters
+     * @param array $data
+     */
+    public function setSessions()
+    {
+        foreach ($this->values as $key => $value) {
+            $_SESSION[$key] = $this->values[$key];
+        }
+    }
+
+    /**
+     * Check if more than 0 elements are in $_SESSION global array
+     */
+    public function hasSessions()
+    {
+        if (count($this->values) > 0) {
+            return true;
+        }
+        return false;
+    }
 
 }

@@ -1,5 +1,4 @@
 <?php
-
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -11,7 +10,8 @@
 
 namespace base;
 
-class Parameter {
+class Parameter
+{
 
     protected $parameters = array();
 
@@ -19,7 +19,8 @@ class Parameter {
      * Class constructor
      * @param array $data
      */
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->setParameters($data);
     }
 
@@ -28,7 +29,8 @@ class Parameter {
      * @param type $key
      * @return type
      */
-    public function has($key) {
+    public function has($key)
+    {
         return (isset($this->parameters[$key]));
     }
 
@@ -37,7 +39,8 @@ class Parameter {
      * @param type $key
      * @return type
      */
-    public function get($key) {
+    public function get($key)
+    {
         if ($this->has($key)) {
             return $this->parameters[$key];
         }
@@ -49,7 +52,8 @@ class Parameter {
      * @param string $key
      * @param string $value
      */
-    public function set($key, $value) {
+    public function set($key, $value)
+    {
         $this->parameters[$key] = $value;
     }
 
@@ -57,13 +61,15 @@ class Parameter {
      * Set all post parameters
      * @param array $data
      */
-    public function setParameters($data) {
+    public function setParameters($data)
+    {
         foreach ($data as $key => $value) {
             $this->parameters[$key] = $value;
         }
     }
 
-    public function hasParameters() {
+    public function hasParameters()
+    {
         if (count($this->parameters) > 0) {
             return true;
         }

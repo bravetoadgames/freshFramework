@@ -9,9 +9,29 @@
  */
 
 $routes = array(
-    '' => array('route' => 'home', 'action' => 'home'),
-    '/information' => array('route' => 'information', 'action' => 'information'),
-    '/contact' => array('route' => 'contact', 'action' => 'contact'),
-    '/user/overview' => array('route' => 'user/overview', 'action' => 'overview'),
-    '/test' => array('route' => 'test', 'action' => 'test')
+    '' => array(
+        'route' => 'home',
+        'action' => 'home',
+        'title' => 'home'
+    ),
+    '/information' => array(
+        'route' => 'information',
+        'action' => 'information',
+        'title' => 'information'
+    ),
+    '/contact' => array(
+        'route' => 'contact',
+        'action' => 'contact',
+        'title' => 'contact'
+    ),
+    '/user/overview' => array(
+        'route' => 'user/overview',
+        'action' => 'overview',
+        'title' => 'user overview'
+    ),
+    '/test' => array(
+        'route' => 'test',
+        'action' => 'test',
+        'title' => 'test'
+    )
 );

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="<?= ($this->action === 'home' ? "active" : "") ?>"><a href="<?= $this->createUrl('') ?>"><?= __Home ?></a></li>
+                <li class="<?= ($this->action === 'user/overview' ? "active" : "") ?>"><a href="<?= $this->createUrl('user/overview') ?>"><?= __User_overview ?></a></li>
+                <li class="<?= ($this->action === 'information' ? "active" : "") ?>"><a href="<?= $this->createUrl('information') ?>"><?= __Information ?></a></li>
+                <li class="<?= ($this->action === 'contact' ? "active" : "") ?>"><a href="<?= $this->createUrl('contact') ?>"><?= __Contact ?></a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?= __Dropdown ?> <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="<?= ($this->action === 'test' ? "active" : "") ?>"><a href="<?= $this->createUrl('test') ?>"><?= __Test ?></a></li>
+                        <li><a href="#"><?= __Action ?></a></li>
+                        <li><a href="#"><?= __Action ?></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><?= __Action ?></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><?= __Action ?></a></li>
+                    </ul>
+
+                </li>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

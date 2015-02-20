@@ -1,50 +1,61 @@
-<p>
-<div class="fresh-remark">
-    <?= __Fields_marked_with_are_required ?>
-</div>
-</p>
-<div class="fresh-form">
-    <form method="post" action="" id="contact-form">
-        <div class="input-element">
-            <label for="firstname">
-                <?= __First_name ?>*
-            </label>
-            <input type="text" name="firstname" value="<?= $this->contact->get('firstname') ?>" class='required' />
-        </div>
+<div class="row">
 
-        <div class="input-element">
-            <label for="insertion">
-                <?= __Insertion ?>
-            </label>
-            <input type="text" name="insertion" value="<?= $this->contact->get('insertion') ?>" />
+    <div class="col-lg-8">
+        <h3>Send us a message</h3>
+        <div class="sub-comment">
+            <?= __Fields_marked_with_are_required ?>
         </div>
+        <form method="post" action="" id="contact-form">
+            <div class="input-element">
+                <label for="firstname">
+                    <?= __First_name ?>*
+                </label>
+                <input type="text" name="firstname" value="<?= $this->contact->get('firstname') ?>" class='form-control required' />
+            </div>
 
-        <div class="input-element">
-            <label for="surname">
-                <?= __Surname ?>*
-            </label>
-            <input type="text" name="surname" value="<?= $this->contact->get('surname') ?>" class='required' />
-        </div>
+            <div class="input-element">
+                <label for="insertion">
+                    <?= __Insertion ?>
+                </label>
+                <input type="text" name="insertion" value="<?= $this->contact->get('insertion') ?>" class="form-control" />
+            </div>
 
-        <div class="input-element">
-            <label for="email">
-                <?= __Email_address ?>*
-            </label>
-            <input type="text" name="email" value="<?= $this->contact->get('email') ?>" class='required email'/>
-        </div>
+            <div class="input-element">
+                <label for="surname">
+                    <?= __Surname ?>*
+                </label>
+                <input type="text" name="surname" value="<?= $this->contact->get('surname') ?>" class='form-control required' />
+            </div>
 
-        <div class="input-element">
-            <label for="message">
-                <?= __Message ?>*
-            </label>
-            <textarea name="message" class='required' ><?= $this->contact->get('message') ?></textarea>
-        </div>
+            <div class="input-element">
+                <label for="email">
+                    <?= __Email_address ?>*
+                </label>
+                <input type="text" name="email" value="<?= $this->contact->get('email') ?>" class='form-control required email'/>
+            </div>
 
-        <div class="input-element">
-            <label for="submit">
+            <div class="input-element">
+                <label for="message">
+                    <?= __Message ?>*
+                </label>
+                <textarea name="message" class='form-control required' ><?= $this->contact->get('message') ?></textarea>
+            </div>
 
-            </label>
-            <input type="submit" name="submit" class="btn btn-default" value="<?= __Send ?>" />
-        </div>
-    </form>
+            <div class="input-element">
+                <label for="submit">
+
+                </label>
+                <input type="submit" name="submit" class="btn btn-info btn-lg btn-block" value="<?= __Send ?>" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-lg-4">
+        <h3>Contact us</h3>
+        <p>
+            <a href="http://www.freshlimes.nl/" target="_blank"><span class="fui-home"></span>&nbsp;&nbsp;www.freshlimes.nl</a><br/>
+            <a href="mailto:arjen.schumacher@gmail.com"><span class="fui-mail"></span>&nbsp;&nbsp;arjen.schumacher@gmail.com</a><br/>
+        </p>
+    </div>
+
 </div>
