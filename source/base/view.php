@@ -21,6 +21,12 @@ class View
 
     protected $data = array();
 
+    public $action = '';
+
+    public $title = '';
+
+    private $layout = '';
+
     /**
      * Class constructor
      */
@@ -33,9 +39,9 @@ class View
      * Setup the output
      * @param string $route
      */
-    public function prepareView($route = '')
+    public function prepareView()
     {
-        $this->output = ROOT . DS . $this->configuration->get('app.name') . DS . 'layout' . DS . $this->configuration->get('app.mainTemplate') . '.phtml';
+        $this->output = ROOT . DS . $this->configuration->get('app.name') . DS . 'layout' . DS . $this->layout . '.phtml';
     }
 
     /**
@@ -46,6 +52,26 @@ class View
     public function setData($key = '', $value = '')
     {
         $this->data[$key] = $value;
+    }
+
+    /**
+     * Set template data
+     * @param string $key
+     * @param array/object/string/int/etc $value
+     */
+    public function setLayout($layout = '')
+    {
+        $this->layout = $layout;
+        $this->prepareView();
+    }
+
+    /**
+     * Set the action value
+     * @param string $action
+     */
+    public function setTitle($title = '')
+    {
+        $this->title = $title;
     }
 
     /**

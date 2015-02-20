@@ -64,6 +64,15 @@ class Router
     }
 
     /**
+     * Get route
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->routes[$this->route]['title'];
+    }
+
+    /**
      * Check validity of route
      * @return boolean
      */

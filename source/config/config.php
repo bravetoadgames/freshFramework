@@ -1,5 +1,4 @@
 <?php
-
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -32,7 +31,7 @@ $config->set('url.root', '');
 $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 
 // Developer configuration
-$config->set('dev.debug', true);
+$config->set('dev.debug', false);
 $config->set('dev.starttime', microtime());
 $config->set('dev.version', '0.4.1.0');
 
