@@ -15,7 +15,12 @@ use base;
 class User extends base\model
 {
 
-    protected $fieldSet = array('id', 'firstname', 'insertion', 'surname', 'email');
+    protected $fieldSet = array(
+        'id' => 0,
+        'firstname' => '',
+        'insertion' => '',
+        'surname' => '',
+        'email' => '');
 
     protected $values = array();
 
