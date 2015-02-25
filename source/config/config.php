@@ -30,6 +30,9 @@ $config->set('url.root', '');
 // Visitor configuration
 $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 
+// Crud settings TODO
+$config->set('crud.password', 'welcome');
+
 // Developer configuration
 $config->set('dev.debug', false);
 $config->set('dev.starttime', microtime());
