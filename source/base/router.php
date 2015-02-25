@@ -78,6 +78,16 @@ class Router
      */
     public function isRoute()
     {
+        $route = '';
+        $elements = explode('/', $this->route);
+        if (end($elements) == intval(end($elements)) && end($elements) > 0) {
+            for ($i = 0; $i < sizeof($elements) - 1; $i++) {
+                if ($elements[$i] != "") {
+                    $route .= "/" . $elements[$i];
+                }
+            }
+            $this->route = $route;
+        }
         if (isset($this->routes[$this->route])) {
             return true;
         }

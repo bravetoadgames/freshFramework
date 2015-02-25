@@ -43,7 +43,7 @@ class Session
      * @param type $key
      * @return type
      */
-    public function getSession($key)
+    public function get($key)
     {
         if ($this->hasSession($key)) {
             return $this->values[$key];
@@ -56,9 +56,20 @@ class Session
      * @param string $key
      * @param string $value
      */
-    public function setSession($key, $value)
+    public function set($key, $value)
     {
+        $_SESSION[$key] = $value;
         $this->values[$key] = $value;
+    }
+
+    /**
+     * Set a session value
+     * @param string $key
+     * @param string $value
+     */
+    public function delete($key)
+    {
+        unset($_SESSION[$key]);
     }
 
     /**

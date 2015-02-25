@@ -115,9 +115,16 @@ class View
     /**
      * Create a basic FreshFramework url
      */
-    public function createUrl($url = '')
+    public function createUrl($url = '', $values = array())
     {
-        return $this->configuration->get('url.root') . '/' . $url;
+        $params = "";
+        if (sizeof($values) > 0) {
+            foreach ($values as $key => $value) {
+                $params .= "/" . $value;
+            }
+        }
+        $url = $this->configuration->get('url.root') . '/' . $url . $params;
+        return $url;
     }
 
 }
