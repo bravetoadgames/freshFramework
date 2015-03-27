@@ -2,7 +2,7 @@
 RewriteEngine on
 #
 #Sub-dir e.g: /cmsms
-RewriteBase /
+RewriteBase /freshframework/source/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

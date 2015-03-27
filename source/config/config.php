@@ -10,6 +10,10 @@
 
 $config = new base\configuration();
 
+// Subpath if application does not reside in root directory
+$config->set('url.subdir', '/freshframework/source');
+
+
 // Application configuration
 $config->set('app.language', 'en');
 $config->set('app.mainTemplate', 'main');
@@ -24,19 +28,16 @@ $config->set('db.name', 'freshframework');
 
 $config->set('error.pageNotFound', 'You stumbled upon the end of the internet!');
 
-$config->set('url.path', $_SERVER['DOCUMENT_ROOT']);
-$config->set('url.root', '');
+$config->set('url.path', $_SERVER['DOCUMENT_ROOT'] . $config->get('url.subdir'));
+$config->set('url.root', $config->get('url.subdir'));
 
 // Visitor configuration
 $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 
-// Crud settings TODO
-$config->set('crud.password', 'welcome');
-
 // Developer configuration
 $config->set('dev.debug', false);
 $config->set('dev.starttime', microtime());
-$config->set('dev.version', '0.4.2.1');
+$config->set('dev.version', '0.4.2.2');
 
 if ($config->get('dev.debug') === true) {
     error_reporting(E_ALL);
