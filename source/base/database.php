@@ -77,6 +77,7 @@ class Database
      */
     private function getResult($result = null)
     {
+        $this->result = null;
         if (is_object($result)) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $this->result[] = $row;

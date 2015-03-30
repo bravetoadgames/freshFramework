@@ -1,29 +1,35 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="table-align-right">ID</th>
-            <th class="table-align-left"><?= __first_name ?></th>
-            <th class="table-align-left"><?= __surname ?></th>
-            <th class="table-align-left"><?= __email ?></th>
-        </tr>
-    </thead>
+<div class="row">
+    <div class="col-lg-12">
+        <h2>User overview</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="table-align-right">ID</th>
+                    <th class="table-align-left"><?= __first_name ?></th>
+                    <th class="table-align-left"><?= __surname ?></th>
+                    <th class="table-align-left"><?= __email ?></th>
+                </tr>
+            </thead>
 
-    <tbody>
-        <?php foreach ($this->users as $user): ?>
-            <tr>
-                <td class="table-align-right">
-                    <?= $user->get('id') ?>
-                </td>
-                <td class="table-align-left">
-                    <?= $user->get('firstname') ?>
-                </td>
-                <td class="table-align-left">
-                    <?= $user->get('surname') ?><?= ($user->get('insertion') != '' ? ", " . $user->get('insertion') : "") ?>
-                </td>
-                <td class="table-align-left">
-                    <?= $user->get('email') ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+            <tbody>
+                <?php foreach ($this->users as $user): ?>
+                    <tr>
+                        <td class="table-align-right">
+                            <?= $user->get('id') ?>
+                        </td>
+                        <td class="table-align-left">
+                            <?= $user->get('firstname') ?>
+                        </td>
+                        <td class="table-align-left">
+                            <?= $user->get('surname') ?><?= ($user->get('insertion') != '' ? ", " . $user->get('insertion') : "") ?>
+                        </td>
+                        <td class="table-align-left">
+                            <?= $user->get('email') ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div>
+</div>

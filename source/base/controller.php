@@ -15,7 +15,7 @@ class Controller
      */
     public static function setDataToObject($object, $data)
     {
-        foreach ($object->getFieldSet() as $key) {
+        foreach ($object->getFieldSet() as $key => $value) {
             $object->set($key, $data[$key]);
         }
         return $object;
@@ -28,8 +28,13 @@ class Controller
     public static function setObjectToData($object)
     {
         $data = array();
-        foreach ($object->getFieldSet() as $key) {
-            $data[$key] = $object->get($key);
+        foreach ($object->getFieldSet() as $key => $value) {
+            $data[$key] = $value;
+        }
+        foreach ($object->getFieldSet() as $key => $value) {
+            if ($object->get($key) !== false) {
+                $data[$key] = $object->get($key);
+            }
         }
         return $data;
     }

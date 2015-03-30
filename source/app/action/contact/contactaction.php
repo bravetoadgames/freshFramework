@@ -86,7 +86,7 @@ class ContactAction extends base\common {
 
         $contactId = $contactController->save($contact);
 
-        $this->appData->sessionParameters->setSession('message', 'Successfully added a contact');
+        $this->appData->sessionParameters->set('message', 'Successfully added a contact');
         return true;
     }
 

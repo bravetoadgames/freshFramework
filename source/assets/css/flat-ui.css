@@ -436,7 +436,7 @@ h6 small,
 h1,
 h2,
 h3 {
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 h4,
@@ -452,12 +452,12 @@ h1,
 .h1 {
     font-size: 4em;
 }
-h2,
-.h2 {
-    font-size: 53px;
+
+h2, .h2 {
+    font-size: 2em;
 }
-h3,
-.h3 {
+
+h3, .h3 {
     font-size: 40px;
 }
 h4,
@@ -4026,7 +4026,7 @@ fieldset[disabled] .input-group-btn .btn-default.active {
 }
 .navbar {
     min-height: 53px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     font-size: 16px;
     border: none;
     border-radius: 6px;
@@ -6201,8 +6201,8 @@ footer p {
 
 .fresh-logo img {
     float: right;
+    margin-top: 35px;
 }
-
 label.error {
     background: #c44;
     color: #fff;

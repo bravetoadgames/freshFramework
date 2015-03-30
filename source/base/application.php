@@ -77,6 +77,10 @@ class Application extends Common
      */
     protected function prepareParameters()
     {
+        $elements = explode("/", $_SERVER['REQUEST_URI']);
+        if (intval(end($elements)) > 0) {
+            $_GET['id'] = end($elements);
+        }
         $this->postParameters = new Parameter($_POST);
         $this->getParameters = new Parameter($_GET);
         $this->sessionParameters = new Session();
@@ -87,7 +91,7 @@ class Application extends Common
      */
     private function prepareMessage()
     {
-        $this->message = new Message();
+        $this->messages = new Message();
     }
 
     /**
@@ -126,9 +130,7 @@ class Application extends Common
     {
         $endtime = microtime();
         if ($this->configuration->get('dev.debug') === true) {
-            echo '<div class="container"><div class="row">
-                <div class="col-lg-12">';
-
+            echo "<div class='fresh-debug'>";
             echo "<span class='fresh-debug-title'>Refreshing debugger</span>";
             echo "<p>Turn off debugging in APPROOT/config/<strong>config.php</strong> by setting dev.debug to <strong>FALSE</strong></p>";
             d($this->database->showQueries());
@@ -137,8 +139,27 @@ class Application extends Common
             d($this->sessionParameters);
             d($this);
             var_dump("runtime: " . number_format(microtime() - $this->configuration->get('dev.starttime'), 5, ",", ".") . " seconds");
-            echo "</div></div></div>";
+            echo "</div>";
         }
+    }
+
+    /**
+     * Set a flash message
+     * @param string $message
+     */
+    public function getMessages()
+    {
+        return $this->messages->get();
+    }
+
+    /**
+     * Set a flash message
+     * @param string $message
+     */
+    public function setMessage($message = '', $type = '')
+    {
+
+        $this->messages->set($message, $type);
     }
 
 }
