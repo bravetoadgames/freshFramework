@@ -48,6 +48,7 @@ class Database
     {
         $query = $this->replaceKeysWithValues($query, $values);
         $query = vsprintf($query, $values);
+        $query = str_replace("#?#", "%", $query);       // Wildcard translation
         $this->queries[] = $query;
         $result = mysqli_query($this->db, $query);
         return $this->getResult($result);

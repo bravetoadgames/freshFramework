@@ -32,4 +32,13 @@ class Common
         return filter_var($url, FILTER_VALIDATE_URL);
     }
 
+
+    /**
+     * Redirect to given route
+     */
+    public function callUrl($route = '') 
+    {
+        header("location: " . $this->configuration->get('url.root') . $route);
+        exit();
+    }
 }
