@@ -1,5 +1,4 @@
 <?php
-
 /*
  * FreshFramework
  * written by Arjen Schumacher
@@ -11,12 +10,14 @@
 
 namespace base;
 
-class Model {
+class Model
+{
 
     /**
      * Check if model already has a DB ID
      */
-    public function isNew() {
+    public function isNew()
+    {
         if ($this->get('id') == 0) {
             return true;
         }
@@ -28,7 +29,8 @@ class Model {
      * @param string $key
      * @param string $value
      */
-    public function set($key, $value) {
+    public function set($key, $value)
+    {
         $this->values[$key] = $value;
     }
 
@@ -37,7 +39,8 @@ class Model {
      * @param string $key
      * @return value
      */
-    public function get($key) {
+    public function get($key)
+    {
         if (isset($this->values[$key])) {
             return $this->values[$key];
         }
@@ -47,7 +50,8 @@ class Model {
     /**
      * get model fields
      */
-    public function getFieldSet() {
+    public function getFieldSet()
+    {
         return $this->fieldSet;
     }
 
