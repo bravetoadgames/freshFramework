@@ -13,6 +13,8 @@ namespace app\action\contact;
 
 use \app\controller\contactcontroller;
 use \app\model\contact\contact;
+use \app\model\user\user;
+
 use base;
 
 /**

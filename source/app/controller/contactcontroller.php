@@ -59,21 +59,15 @@ class ContactController extends base\controller
         $query = "
             INSERT INTO
                 contact
-            (firstname,
-             insertion,
-             surname,
-             email,
+            (userId,
              message,
-             date_sent,
-             ip_address)
+             dateSent,
+             ipAddress)
             VALUES
-            (#firstname, 
-             #insertion, 
-             #surname, 
-             #email, 
-             #message,
-             #date_sent, 
-             #ip_address)
+            (#userId, 
+             #message, 
+             #dateSent, 
+             #ipAddress)
             ";
 
         $this->db->query($query, $this->setObjectToData($contact));
