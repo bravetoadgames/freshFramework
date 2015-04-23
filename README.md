@@ -1,7 +1,7 @@
 # freshFramework
 =====================
 
-FreshFramework - A personal PHP framework, made to learn, have fun and maybe use in a future project (https://github.com/arjenschumacher/freshFramework).
+FreshFramework - A personal PHP framework pet project, made to learn and have fun. (https://github.com/arjenschumacher/freshFramework).
 
 * Version: 0.9.5.0
 * Requirements: mySQL, Apache 2, PHP >= 5.4, mod_rewrite, mbstring, mcrypt
