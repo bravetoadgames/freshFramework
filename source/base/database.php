@@ -10,6 +10,8 @@
 
 namespace Base;
 
+use PDO;
+
 class Database
 {
 
@@ -34,9 +36,17 @@ class Database
      */
     private function connect()
     {
-        $this->db = mysqli_connect(
-            $this->configuration->get('db.host'), $this->configuration->get('db.username'), $this->configuration->get('db.password'), $this->configuration->get('db.name')
-        );
+        if($this->configuration->get('db.connector') == 'PDO') {
+            $dsn = "mysql:host=" . $this->configuration->get('db.host') . ";dbname=" . $this->configuration->get('db.name');
+            $options = array();
+            $this->db = new PDO(
+                $dsn, $this->configuration->get('db.username'), $this->configuration->get('db.password'), $options
+            );
+        } elseif($this->configuration->get('db.connector') == 'mysqli') {
+            $this->db = mysqli_connect(
+                $this->configuration->get('db.host'), $this->configuration->get('db.username'), $this->configuration->get('db.password'), $this->configuration->get('db.name')
+            );
+        }
     }
 
     /**
@@ -50,7 +60,13 @@ class Database
         $query = vsprintf($query, $values);
         $query = str_replace("#?#", "%", $query);       // Wildcard translation
         $this->queries[] = $query;
-        $result = mysqli_query($this->db, $query);
+        
+        if($this->configuration->get('db.connector') == 'PDO') {
+            $result = $this->db->query($query);
+        } elseif($this->configuration->get('db.connector') == 'mysqli') {
+            $result = mysqli_query($this->db, $query);
+        }
+
         return $this->getResult($result);
     }
 
@@ -80,8 +96,12 @@ class Database
     {
         $this->result = null;
         if (is_object($result)) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $this->result[] = $row;
+            if($this->configuration->get('db.connector') == 'PDO') {
+                $this->result = $result;
+            } elseif($this->configuration->get('db.connector') == 'mysqli') {
+                while ($row = mysqli_fetch_assoc($result)) {
+                     $this->result[] = $row;
+                }
             }
         }
         return $this->result;

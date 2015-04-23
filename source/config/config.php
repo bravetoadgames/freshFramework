@@ -21,6 +21,7 @@ $config->set('app.name', 'app');
 $config->set('app.title', 'FreshFramework');
 
 // Database configuration
+$config->set('db.connector', 'PDO');        // PDO or mysqli
 $config->set('db.host', 'localhost');
 $config->set('db.username', 'root');
 $config->set('db.password', '');
