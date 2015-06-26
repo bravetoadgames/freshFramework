@@ -2,6 +2,7 @@
     <div class="container">
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                <?php d($this);?>
                 <li class="<?= ($this->action === 'home' ? "active" : "") ?>"><a href="<?= $this->createUrl('') ?>"><?= __Home ?></a></li>
                 <li class="<?= ($this->action === 'user/overview' ? "active" : "") ?>"><a href="<?= $this->createUrl('user/overview') ?>"><?= __User_overview ?></a></li>
                 <li class="<?= ($this->action === 'information' ? "active" : "") ?>"><a href="<?= $this->createUrl('information') ?>"><?= __Information ?></a></li>
