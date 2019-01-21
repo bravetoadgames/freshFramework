@@ -2,16 +2,16 @@
 /*
  * FreshFramework
  * written by Arjen Schumacher
- * 2015
+ * 2015-2019
  * -----------------------------------
  * e-mail:  arjen.schumacher@gmail.com
- * twitter: @onkelarie
+ * twitter: @arjenschumacher
  */
 
 $config = new base\configuration();
 
 // Subpath if application does not reside in root directory
-$config->set('url.subdir', '/freshframework/source');
+$config->set('url.subdir', '');
 
 
 // Application configuration

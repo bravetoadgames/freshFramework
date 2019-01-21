@@ -2,10 +2,10 @@
 /*
  * FreshFramework
  * written by Arjen Schumacher
- * 2015
+ * 2015-2019
  * -----------------------------------
  * e-mail:  arjen.schumacher@gmail.com
- * twitter: @onkelarie
+ * twitter: @arjenschumacher
  */
 
 namespace app\model\user;
