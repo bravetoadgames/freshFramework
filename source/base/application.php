@@ -138,7 +138,7 @@ class Application extends Common
             d($this->postParameters);
             d($this->sessionParameters);
             d($this);
-            var_dump("runtime: " . number_format(microtime() - $this->configuration->get('dev.starttime'), 5, ",", ".") . " seconds");
+            var_dump("runtime: " . number_format((float) microtime() - (float) $this->configuration->get('dev.starttime'), 5) . " seconds");
             echo "</div>";
         }
     }

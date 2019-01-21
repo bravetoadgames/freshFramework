@@ -36,8 +36,8 @@ $config->set('url.root', $config->get('url.subdir'));
 $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 
 // Developer configuration
-$config->set('dev.debug', false);
-$config->set('dev.starttime', microtime());
+$config->set('dev.debug', true);
+$config->set('dev.starttime', (float) microtime());
 $config->set('dev.version', '1.0');
 
 if ($config->get('dev.debug') === true) {
