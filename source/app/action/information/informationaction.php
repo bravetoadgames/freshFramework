@@ -5,7 +5,7 @@
  * 2015
  * -----------------------------------
  * e-mail:  arjen.schumacher@gmail.com
- * twitter: @onkelarie
+ * twitter: @arjenschumacher
  */
 
 namespace app\action\information;

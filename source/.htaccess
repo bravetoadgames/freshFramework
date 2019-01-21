@@ -2,7 +2,7 @@
 RewriteEngine on
 
 # Define the root directory of the application
-RewriteBase /freshframework/source/
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
