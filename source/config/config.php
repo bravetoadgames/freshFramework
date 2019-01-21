@@ -38,7 +38,7 @@ $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 // Developer configuration
 $config->set('dev.debug', false);
 $config->set('dev.starttime', microtime());
-$config->set('dev.version', '0.9.5');
+$config->set('dev.version', '1.0');
 
 if ($config->get('dev.debug') === true) {
     error_reporting(E_ALL);
