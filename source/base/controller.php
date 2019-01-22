@@ -10,14 +10,11 @@
 
 namespace base;
 
-use app\model\user\user;
-use app\model\contact\contact;
-
 class Controller
 {
 
     /**
-     * Fill object with data
+     * convert array data to object
      * @param object app\model\*
      * @param array $data
      */
@@ -30,6 +27,7 @@ class Controller
     }
 
     /**
+     * Convert object data to array
      * @param object app\model\*
      * @return array
      */

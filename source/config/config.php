@@ -27,8 +27,10 @@ $config->set('db.username', 'root');
 $config->set('db.password', '');
 $config->set('db.name', 'freshframework');
 
+// In the base/router this can be shown if unroutable
 $config->set('error.pageNotFound', 'You stumbled upon the end of the internet!');
 
+// Set application paths
 $config->set('url.path', $_SERVER['DOCUMENT_ROOT'] . $config->get('url.subdir'));
 $config->set('url.root', $config->get('url.subdir'));
 
@@ -38,8 +40,9 @@ $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 // Developer configuration
 $config->set('dev.debug', true);
 $config->set('dev.starttime', (float) microtime());
-$config->set('dev.version', '1.0');
+$config->set('dev.version', '1.0.5');
 
+// Show error reporting when in debug mode
 if ($config->get('dev.debug') === true) {
     error_reporting(E_ALL);
     ini_set('display_errors', '1');

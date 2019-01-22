@@ -15,10 +15,22 @@ use PDO;
 class Database
 {
 
+    /**
+     * site configuration
+     * @var object
+     */
     protected $configuration = null;
 
+    /**
+     * DB query
+     * @var object 
+     */
     protected $result = null;
 
+    /**
+     * executed query stack
+     * @var array
+     */
     protected $queries = array();
 
     /**
@@ -32,17 +44,17 @@ class Database
     }
 
     /**
-     * Make connection with configured database
+     * Make connection with configured database connector (PDO or mysqli)
      */
     private function connect()
     {
-        if($this->configuration->get('db.connector') == 'PDO') {
+        if ($this->configuration->get('db.connector') == 'PDO') {
             $dsn = "mysql:host=" . $this->configuration->get('db.host') . ";dbname=" . $this->configuration->get('db.name');
             $options = array();
             $this->db = new PDO(
                 $dsn, $this->configuration->get('db.username'), $this->configuration->get('db.password'), $options
             );
-        } elseif($this->configuration->get('db.connector') == 'mysqli') {
+        } elseif ($this->configuration->get('db.connector') == 'mysqli') {
             $this->db = mysqli_connect(
                 $this->configuration->get('db.host'), $this->configuration->get('db.username'), $this->configuration->get('db.password'), $this->configuration->get('db.name')
             );
@@ -60,10 +72,10 @@ class Database
         $query = vsprintf($query, $values);
         $query = str_replace("#?#", "%", $query);       // Wildcard translation
         $this->queries[] = $query;
-        
-        if($this->configuration->get('db.connector') == 'PDO') {
+
+        if ($this->configuration->get('db.connector') == 'PDO') {
             $result = $this->db->query($query);
-        } elseif($this->configuration->get('db.connector') == 'mysqli') {
+        } elseif ($this->configuration->get('db.connector') == 'mysqli') {
             $result = mysqli_query($this->db, $query);
         }
 
@@ -96,11 +108,11 @@ class Database
     {
         $this->result = null;
         if (is_object($result)) {
-            if($this->configuration->get('db.connector') == 'PDO') {
+            if ($this->configuration->get('db.connector') == 'PDO') {
                 $this->result = $result;
-            } elseif($this->configuration->get('db.connector') == 'mysqli') {
+            } elseif ($this->configuration->get('db.connector') == 'mysqli') {
                 while ($row = mysqli_fetch_assoc($result)) {
-                     $this->result[] = $row;
+                    $this->result[] = $row;
                 }
             }
         }
@@ -125,11 +137,24 @@ class Database
         return $queryValues;
     }
 
+    /**
+     * Get last inserted ID
+     * @return int
+     */
     public function getInsertId()
     {
-        return mysqli_insert_id($this->db);
+        if ($this->configuration->get('db.connector') == 'PDO') {
+            return $this->db->lastInsertId();
+        } elseif ($this->configuration->get('db.connector') == 'mysqli') {
+            return mysqli_insert_id($this->db);
+        }
+        return 0;
     }
 
+    /**
+     * Return stack of executed queries
+     * @return array
+     */
     public function showQueries()
     {
         return $this->queries;

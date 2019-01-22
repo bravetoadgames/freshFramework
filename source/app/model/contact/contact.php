@@ -20,10 +20,13 @@ class Contact extends base\model
      */
     protected $fieldSet = array(
         'id' => 0,
-        'userId' => '',
+        'firstname' => '',
+        'insertion' => '',
+        'surname' => '',
+        'email' => '',
+        'message' => '',
         'dateSent' => '',
-        'ipAddress' => '',
-        'user' => null
+        'ipAddress' => ''
     );
 
     protected $values = array();
