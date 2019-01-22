@@ -40,7 +40,7 @@ $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 // Developer configuration
 $config->set('dev.debug', true);
 $config->set('dev.starttime', (float) microtime());
-$config->set('dev.version', '1.0.5');
+$config->set('dev.version', '1.1.0');
 
 // Show error reporting when in debug mode
 if ($config->get('dev.debug') === true) {
