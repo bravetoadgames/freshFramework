@@ -59,12 +59,18 @@ class ContactController extends base\controller
         $query = "
             INSERT INTO
                 contact
-            (userId,
+            (firstname,
+             insertion,
+             surname,
+             email,
              message,
              dateSent,
              ipAddress)
             VALUES
-            (#userId, 
+            (#firstname, 
+             #insertion, 
+             #surname, 
+             #email, 
              #message, 
              #dateSent, 
              #ipAddress)

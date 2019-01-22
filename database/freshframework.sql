@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 21 jan 2019 om 13:51
+-- Gegenereerd op: 22 jan 2019 om 13:40
 -- Serverversie: 5.7.23
 -- PHP-versie: 7.2.10
 
@@ -31,13 +31,16 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `contact`;
 CREATE TABLE IF NOT EXISTS `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `insertion` varchar(20) NOT NULL,
+  `surname` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `dateSent` datetime NOT NULL,
   `ipAddress` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `user_id` (`firstname`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `user`
+-- Gegevens worden geÃ«xporteerd voor tabel `user`
 --
 
 INSERT INTO `user` (`id`, `firstname`, `insertion`, `surname`, `email`) VALUES

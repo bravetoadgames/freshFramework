@@ -83,8 +83,8 @@ class ContactAction extends base\common {
         $contact->set('surname', $surname);
         $contact->set('email', $email);
         $contact->set('message', $message);
-        $contact->set('date_sent', date("Y-m-d H:i:s"));
-        $contact->set('ip_address', $this->appData->configuration->get('ip.address.visitor'));
+        $contact->set('dateSent', date("Y-m-d H:i:s"));
+        $contact->set('ipAddress', $this->appData->configuration->get('ip.address.visitor'));
 
         $contactId = $contactController->save($contact);
 
