@@ -39,6 +39,8 @@ $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 
 // Developer configuration
 $config->set('dev.debug', true);
+
+// Runtime measurement
 $config->set('dev.starttime', (float) microtime());
 $config->set('dev.version', '1.1.0');
 
