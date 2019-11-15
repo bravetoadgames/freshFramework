@@ -24,7 +24,7 @@ $config->set('app.title', 'FreshFramework');
 $config->set('db.connector', 'PDO');        // PDO or mysqli
 $config->set('db.host', 'localhost');
 $config->set('db.username', 'root');
-$config->set('db.password', '');
+$config->set('db.password', 'Devtester');
 $config->set('db.name', 'freshframework');
 
 // In the base/router this can be shown if unroutable
@@ -38,7 +38,7 @@ $config->set('url.root', $config->get('url.subdir'));
 $config->set('ip.address.visitor', $_SERVER['REMOTE_ADDR']);
 
 // Developer configuration
-$config->set('dev.debug', true);
+$config->set('dev.debug', false);
 
 // Runtime measurement
 $config->set('dev.starttime', (float) microtime());
