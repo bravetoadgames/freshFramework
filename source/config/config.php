@@ -42,7 +42,7 @@ $config->set('dev.debug', false);
 
 // Runtime measurement
 $config->set('dev.starttime', (float) microtime());
-$config->set('dev.version', '1.1.0');
+$config->set('dev.version', '1.1.1');
 
 // Show error reporting when in debug mode
 if ($config->get('dev.debug') === true) {
