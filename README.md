@@ -5,7 +5,7 @@ FreshFramework - A personal PHP framework pet project, made to learn and have fu
 
 * Version: RC-1.1.1
 * Requirements: mySQL, Apache 2, PHP >= 7.0, mod_rewrite, mbstring, mcrypt
-* Website: https://www.twitter.com/arjenschumacher/ (Dutch alert!)
+* Website: https://www.twitter.com/unity_student/ (Dutch alert!)
 
 Third Party
 -----------
