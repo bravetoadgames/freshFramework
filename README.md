@@ -10,9 +10,9 @@ FreshFramework - A personal PHP framework pet project, made to learn and have fu
 Third Party
 -----------
 * Bootstrap: https://getbootstrap.com/
-* Kint: http://raveren.github.io/kint/
+* Kint: https://github.com/kint-php/kint
 * jQuery: https://jquery.org/ (MIT)
-* Validate: http://jqueryvalidation.org/
+* Validate: https://jqueryvalidation.org/
 
 License
 -------
